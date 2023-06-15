@@ -44,7 +44,7 @@ void main(){
         {
             num /= 10;
         }
-        Console.WriteLine("Третья цифра заданного числа: " + (num%10)%10);
+        Console.WriteLine("Третья цифра заданного числа: " + num%10);
 };
 
 main();
