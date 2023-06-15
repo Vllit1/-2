@@ -12,6 +12,7 @@ int Size3()
 {
     Console.Write("Введите трёхзначное число: ");
     int input = Convert.ToInt32(Console.ReadLine());
+    if (input < 0) input *= -1;
     if (input < 100 || input > 999)
     {
         Console.WriteLine("Введёное число не трёхзначное. Попробуйте ещё раз.");
@@ -29,21 +30,24 @@ Console.WriteLine("Вторая цифра заданного числа: " + Se
 // выводит третью цифру заданного числа 
 // или сообщает, что третьей цифры нет.
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// void main(){
-//     int num = new Random().Next(-99999, 99999);
-//     Console.WriteLine("Заданное число: " + num);
-//     if (num < 0) num *= -1;
-//     if (num < 100)
-//         Console.WriteLine("Третьей цифры у этого числа нет.");
-//     else if (num < 1000)
-//         Console.WriteLine("Третья цифра заданного числа: " + num%10);
-//     else if (num < 10000)
-//         Console.WriteLine("Третья цифра заданного числа: " + (num / 10)%10);
-//     else if (num < 100000)
-//         Console.WriteLine("Третья цифра заданного числа: " + (num / 100)%10);
-// };
+Console.WriteLine("----------------------------------------");
+void main(){
+    int num = new Random().Next(-99999, 99999);
+    Console.WriteLine("Заданное число: " + num);
+    if (num < 0) num *= -1;
+    if (num < 100)
+        Console.WriteLine("Третьей цифры у этого числа нет.");
+    else if (num < 1000)
+        Console.WriteLine("Третья цифра заданного числа: " + num%10);
+    else if (num >= 1000)
+        while (num >= 1000)
+        {
+            num /= 10;
+        }
+        Console.WriteLine("Третья цифра заданного числа: " + (num%10)%10);
+};
 
-// main();
+main();
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 // -------------------------------------------------
@@ -51,15 +55,17 @@ Console.WriteLine("Вторая цифра заданного числа: " + Se
 // принимает на вход цифру, обозначающую день недели, 
 // и проверяет, является ли этот день выходным.
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// string Holiday(int dayNum)
-// {
-//     string holiday = "Этот день будний.";
-//     if (dayNum < 1 || dayNum > 7) holiday = "Введёное число не в диапазоне 1-7";
-//     if (dayNum == 6 || dayNum == 7) holiday = "Этот день выходной.";
-//     return holiday;
-// };
+Console.WriteLine("----------------------------------------");
+string Holiday(int dayNum)
+{
+    string holiday = "Этот день будний.";
+    if (dayNum < 1 || dayNum > 7) holiday = "Введёное число не в диапазоне 1-7";
+    if (dayNum == 6 || dayNum == 7) holiday = "Этот день выходной.";
+    return holiday;
+};
 
-// Console.Write("Введите день недели в виде числа от 1 до 7, где 1 = Понедельник: ");
-// int input = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine(Holiday(input));
+Console.Write("Введите день недели в виде числа от 1 до 7, где 1 = Понедельник: ");
+int input = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine(Holiday(input));
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
